@@ -4,13 +4,13 @@
 
 export function getNavbar(activePage: string): string {
   const links = [
-    { href: '/', id: 'home', label: 'Home' },
-    { href: '/about.html', id: 'about', label: 'About' },
-    { href: '/products.html', id: 'products', label: 'Products' },
-    { href: '/industries.html', id: 'industries', label: 'Industries' },
-    { href: '/sustainability.html', id: 'sustainability', label: 'Sustainability' },
-    { href: '/why-swanneck.html', id: 'why-swanneck', label: 'Why Swanneck' },
-    { href: '/contact.html', id: 'contact', label: 'Contact Us', cta: true },
+    { href: './index.html', id: 'home', label: 'Home' },
+    { href: './about.html', id: 'about', label: 'About' },
+    { href: './products.html', id: 'products', label: 'Products' },
+    { href: './industries.html', id: 'industries', label: 'Industries' },
+    { href: './sustainability.html', id: 'sustainability', label: 'Sustainability' },
+    { href: './why-swanneck.html', id: 'why-swanneck', label: 'Why Swanneck' },
+    { href: './contact.html', id: 'contact', label: 'Contact Us', cta: true },
   ];
 
   const navLinksHtml = links
@@ -24,7 +24,7 @@ export function getNavbar(activePage: string): string {
   return `
   <nav id="main-nav" class="navbar">
     <div class="nav-container">
-      <a href="/" class="nav-logo" id="nav-logo">
+      <a href="./index.html" class="nav-logo" id="nav-logo">
         <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 75C10 88 40 95 65 90C85 86 95 75 95 55" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M25 72C25 72 15 65 15 45C15 25 35 5 50 15C55 18 55 25 50 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -69,7 +69,7 @@ export function getFooter(): string {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="footer-logo">
+          <a href="./index.html" class="footer-logo">
             <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 75C10 88 40 95 65 90C85 86 95 75 95 55" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M25 72C25 72 15 65 15 45C15 25 35 5 50 15C55 18 55 25 50 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,24 +84,24 @@ export function getFooter(): string {
         </div>
         <div class="footer-links">
           <h5>Quick Links</h5>
-          <a href="/">Home</a>
-          <a href="/about.html">About Us</a>
-          <a href="/products.html">Products</a>
-          <a href="/industries.html">Industries</a>
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About Us</a>
+          <a href="./products.html">Products</a>
+          <a href="./industries.html">Industries</a>
         </div>
         <div class="footer-links">
           <h5>Company</h5>
-          <a href="/sustainability.html">Sustainability</a>
-          <a href="/why-swanneck.html">Why Swanneck</a>
-          <a href="/contact.html">Contact Us</a>
+          <a href="./sustainability.html">Sustainability</a>
+          <a href="./why-swanneck.html">Why Swanneck</a>
+          <a href="./contact.html">Contact Us</a>
           <a href="#">Privacy Policy</a>
         </div>
         <div class="footer-links">
           <h5>Products</h5>
-          <a href="/products.html">Matured Water</a>
-          <a href="/products.html">Health Drinks</a>
-          <a href="/products.html">Energy Drinks</a>
-          <a href="/products.html">Mineral Water</a>
+          <a href="./products.html">Matured Water</a>
+          <a href="./products.html">Health Drinks</a>
+          <a href="./products.html">Energy Drinks</a>
+          <a href="./products.html">Mineral Water</a>
         </div>
       </div>
       <div class="footer-bottom">
