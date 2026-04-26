@@ -12,7 +12,7 @@
   /* Soft icy blue tint */
   --color-bg-tertiary: #e8eff2;
   --color-bg-card: #ffffff;
-  --color-bg-glass: rgba(255, 255, 255, 0.65);
+  --color-bg-glass: rgba(255, 255, 255, 0.8);
   --color-bg-glass-hover: rgba(255, 255, 255, 0.85);
 
   /* Gold / Accent — Luxury Gold */
@@ -90,39 +90,38 @@
 
 /* --- DARK THEME OVERRIDES --- */
 [data-theme="dark"] {
-  --color-bg-primary: #0a0a0f;
-  /* Deeper dark blue-black */
-  --color-bg-secondary: #0f0f18;
-  --color-bg-tertiary: #161625;
-  --color-bg-card: rgba(18, 18, 30, 0.85);
-  --color-bg-glass: rgba(0, 0, 0, 0.45);
-  --color-bg-glass-hover: rgba(0, 0, 0, 0.6);
+  --color-bg-primary: #0a110a;
+  --color-bg-secondary: #121a12;
+  --color-bg-tertiary: #1a251a;
+  --color-bg-card: rgba(18, 30, 18, 0.85);
+  --color-bg-glass: rgba(5, 10, 5, 0.8);
+  --color-bg-glass-hover: rgba(5, 10, 5, 0.6);
 
-  --color-gold: #d4af37;
-  --color-gold-light: #f1d37b;
-  --color-gold-dark: #b38e44;
-  --color-gold-glow: rgba(212, 175, 55, 0.2);
+  --color-gold: #b39b6b;
+  --color-gold-light: #d4c197;
+  --color-gold-dark: #8d754a;
+  --color-gold-glow: rgba(179, 155, 107, 0.2);
 
-  --color-crystal: #4fc3f7;
-  --color-crystal-dark: #0288d1;
-  --color-crystal-glow: rgba(79, 195, 247, 0.15);
+  --color-crystal: #4a7c59;
+  --color-crystal-dark: #2d4a2d;
+  --color-crystal-glow: rgba(74, 124, 89, 0.2);
 
   --color-text-primary: #f8fafc;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
+  --color-text-secondary: #a7b5a7;
+  --color-text-muted: #6b846b;
 
   --color-border: rgba(255, 255, 255, 0.05);
-  --color-border-hover: rgba(212, 175, 55, 0.2);
+  --color-border-hover: rgba(179, 155, 107, 0.2);
 
-  --shadow-glow-gold: 0 20px 60px rgba(212, 175, 55, 0.15);
-  --shadow-glow-crystal: 0 20px 60px rgba(79, 195, 247, 0.1);
+  --shadow-glow-gold: 0 20px 60px rgba(179, 155, 107, 0.15);
+  --shadow-glow-crystal: 0 20px 60px rgba(74, 124, 89, 0.1);
   --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.4);
   --shadow-card-hover: 0 30px 80px rgba(0, 0, 0, 0.6);
 
   --color-bottle-glass: rgba(255, 255, 255, 0.08);
   --color-bottle-stroke: rgba(255, 255, 255, 0.15);
   --color-bottle-reflection: rgba(255, 255, 255, 0.12);
-  --color-bottle-text: rgba(212, 175, 55, 0.8);
+  --color-bottle-text: rgba(179, 155, 107, 0.8);
   --color-bottle-text-sub: rgba(255, 255, 255, 0.3);
 }
 
@@ -280,7 +279,22 @@ a {
   -webkit-backdrop-filter: blur(25px) saturate(180%);
   border-bottom: 1px solid var(--color-border);
   padding: 0.8rem 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Force Navbar to stay in "Dark Mode" styling when transparent ONLY over the home hero */
+.home-page .navbar:not(.scrolled) .nav-link,
+.home-page .navbar:not(.scrolled) .logo-text,
+.home-page .navbar:not(.scrolled) .logo-icon,
+.home-page .navbar:not(.scrolled) .theme-toggle,
+.home-page .navbar:not(.scrolled) .nav-toggle {
+  color: #f8fafc !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.home-page .navbar:not(.scrolled) .nav-link-cta {
+  color: #b39b6b !important;
+  border-color: rgba(179, 155, 107, 0.5) !important;
 }
 
 .nav-container {
@@ -454,12 +468,66 @@ a {
 
 /* --- Hero Section --- */
 .hero-section {
-  min-height: auto;
+  height: 100vh;
+  min-height: 700px;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 5rem 0 0.5rem;
+  padding: 160px 0 40px;
+}
+
+/* Force "Dark Mode" aesthetics specifically for hero elements regardless of global theme */
+.hero-section .hero-title,
+.hero-section .hero-title .title-line:not(.title-accent) {
+  color: #f8fafc !important;
+}
+
+.hero-section .hero-subtitle {
+  color: #a7b5a7 !important;
+}
+
+.hero-section .hero-badge {
+  color: #b39b6b !important;
+  border-color: rgba(179, 155, 107, 0.4) !important;
+  background: rgba(179, 155, 107, 0.1) !important;
+}
+
+.hero-section .stat-number {
+  color: #f8fafc !important;
+}
+
+.hero-section .stat-label {
+  color: #a7b5a7 !important;
+}
+
+.hero-section .btn-glass {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #f8fafc !important;
+}
+
+.hero-section .btn-glass:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.hero-section .btn-primary {
+  --color-gold: #b39b6b;
+  --color-gold-dark: #8d754a;
+  background: var(--color-gold) !important;
+  color: #0a110a !important; /* Dark text on gold button */
+}
+
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.1) 100%), url('/HeroBG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transform: scale(1);
 }
 
 .hero-particles {
@@ -482,6 +550,7 @@ a {
   top: -10%;
   right: -5%;
 }
+
 
 .orb-2 {
   width: 400px;
@@ -525,7 +594,7 @@ a {
   padding: 0 var(--spacing-lg);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -569,10 +638,10 @@ a {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem); /* Slightly smaller for safety */
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.4; /* Generous line-height to prevent overlap */
+  letter-spacing: -0.01em;
   grid-column: 1 / 2;
   margin-bottom: var(--spacing-sm);
 }
@@ -591,7 +660,7 @@ a {
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: var(--color-text-secondary);
   max-width: 580px;
   line-height: 1.6;
@@ -652,16 +721,18 @@ a {
 
 .bottle-showcase {
   position: relative;
-  width: 300px;
-  height: 500px;
+  width: 280px;
+  height: 580px; /* Narrower and taller to fit the SVG aspect ratio better */
 }
 
 .bottle-glow {
   position: absolute;
-  inset: -40px;
-  background: radial-gradient(ellipse at center, var(--color-gold-glow), transparent 60%);
+  inset: -60px;
+  background: radial-gradient(ellipse at center, rgba(212,175,55,0.3), transparent 70%);
   border-radius: 50%;
+  filter: blur(40px);
   animation: bottleGlow 4s ease-in-out infinite;
+  z-index: 1;
 }
 
 @keyframes bottleGlow {
@@ -910,14 +981,45 @@ a {
   gap: 1.5rem;
 }
 
-.about-card {
-  background: var(--color-bg-card);
+.highlight-card {
+  background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  transition: all var(--transition-slow);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem; /* Tighter padding for image space */
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
+}
+
+.highlight-visual {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="dark"] .highlight-visual {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.highlight-visual img {
+  height: 85%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+  transition: transform var(--transition-base);
+}
+
+.highlight-card:hover .highlight-visual img {
+  transform: translateY(-5px) scale(1.05);
 }
 
 .about-card::before {
@@ -1059,12 +1161,13 @@ a {
 }
 
 .product-card-visual {
-  padding: 2.5rem;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 200px;
+  min-height: 280px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%);
 }
 
 .product-aura {
@@ -1106,11 +1209,44 @@ a {
   background: rgba(79, 195, 247, 0.1);
 }
 
+.plain-visual .product-aura {
+  background: rgba(79, 195, 247, 0.12);
+}
+
+.gin-visual .product-aura {
+  background: rgba(174, 213, 129, 0.12);
+}
+
 .product-icon-svg {
   width: 100px;
   height: 160px;
   position: relative;
   z-index: 1;
+}
+
+.product-image {
+  height: 240px; /* Increased for better presence */
+  width: auto;
+  max-width: 90%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));
+  transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-image {
+  transform: translateY(-8px) scale(1.08);
+}
+
+.hero-bottle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25));
+  animation: bottleFloat 6s ease-in-out infinite;
 }
 
 .product-card-content {
@@ -1148,6 +1284,18 @@ a {
   background: rgba(243, 156, 18, 0.1);
   color: var(--color-beer);
   border-color: rgba(243, 156, 18, 0.2);
+}
+
+.product-badge-plain {
+  background: rgba(79, 195, 247, 0.1);
+  color: #0288d1;
+  border-color: rgba(79, 195, 247, 0.2);
+}
+
+.product-badge-gin {
+  background: rgba(174, 213, 129, 0.1);
+  color: #689f38;
+  border-color: rgba(174, 213, 129, 0.2);
 }
 
 .product-card-content h3 {
