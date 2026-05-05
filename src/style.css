@@ -86,6 +86,11 @@
   --shadow-glow-crystal: 0 10px 40px rgba(111, 190, 243, 0.12);
   --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.03);
   --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.06);
+
+  /* Hero Overlays */
+  --hero-gradient-start: rgba(255, 255, 255, 0.3);
+  --hero-gradient-end: rgba(255, 255, 255, 0.6);
+  --hero-text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
 }
 
 /* --- DARK THEME OVERRIDES --- */
@@ -123,6 +128,11 @@
   --color-bottle-reflection: rgba(255, 255, 255, 0.12);
   --color-bottle-text: rgba(179, 155, 107, 0.8);
   --color-bottle-text-sub: rgba(255, 255, 255, 0.3);
+
+  /* Hero Overlays Dark */
+  --hero-gradient-start: rgba(0, 0, 0, 0.5);
+  --hero-gradient-end: rgba(0, 0, 0, 0.8);
+  --hero-text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
 }
 
 /* --- Reset & Base --- */
@@ -199,8 +209,8 @@ a {
 }
 
 .swan-loader {
-  width: 80px;
-  height: 80px;
+  width: 560px !important;
+  height: 560px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,9 +219,9 @@ a {
 }
 
 .loader-svg {
-  width: 100%;
-  height: 100%;
-  color: var(--color-gold);
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
   filter: drop-shadow(0 10px 25px rgba(179, 142, 68, 0.25));
 }
 
@@ -316,7 +326,17 @@ a {
 .logo-icon {
   width: 36px;
   height: 36px;
-  color: var(--color-gold);
+  object-fit: contain;
+}
+
+.nav-logo .logo-icon {
+  width: 65px !important;
+  height: 65px !important;
+}
+
+.footer-logo .logo-icon {
+  width: 40px !important;
+  height: 40px !important;
 }
 
 .logo-text {
@@ -474,7 +494,7 @@ a {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 160px 0 40px;
+  padding: 120px 0 40px;
 }
 
 /* Force "Dark Mode" aesthetics specifically for hero elements regardless of global theme */
@@ -522,12 +542,21 @@ a {
 .hero-bg-image {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.1) 100%), url('/HeroBG.png');
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.2) 100%), 
+    url('/home_banner.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
-  transform: scale(1);
+  transform: scale(1.05);
+  animation: subtleZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
 }
 
 .hero-particles {
@@ -593,9 +622,17 @@ a {
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
   align-items: center;
+}
+
+.hero-text-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -3rem;
 }
 
 .hero-badge {
@@ -619,7 +656,6 @@ a {
   height: 6px;
   border-radius: 50%;
   background: var(--color-gold);
-  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -638,12 +674,12 @@ a {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.8rem); /* Slightly smaller for safety */
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
   font-weight: 700;
-  line-height: 1.4; /* Generous line-height to prevent overlap */
-  letter-spacing: -0.01em;
-  grid-column: 1 / 2;
-  margin-bottom: var(--spacing-sm);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.02em;
 }
 
 .title-line {
@@ -652,11 +688,12 @@ a {
 
 .title-accent {
   font-style: italic;
-  font-weight: 400;
-  background: linear-gradient(135deg, var(--color-gold), var(--color-crystal));
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.8));
 }
 
 .hero-subtitle {
@@ -666,6 +703,7 @@ a {
   line-height: 1.6;
   font-weight: 300;
   grid-column: 1 / 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-cta-group {
@@ -673,7 +711,7 @@ a {
   align-items: center;
   gap: 1.5rem;
   padding-top: 1rem;
-  grid-column: 1 / 2;
+  justify-content: flex-start;
 }
 
 .hero-stats {
@@ -731,7 +769,6 @@ a {
   background: radial-gradient(ellipse at center, rgba(212,175,55,0.3), transparent 70%);
   border-radius: 50%;
   filter: blur(40px);
-  animation: bottleGlow 4s ease-in-out infinite;
   z-index: 1;
 }
 
@@ -1530,7 +1567,6 @@ a {
   position: absolute;
   border: 1px solid rgba(46, 204, 113, 0.15);
   border-radius: 50%;
-  animation: ecoPulse 6s ease-in-out infinite;
 }
 
 .eco-ring-1 {
@@ -1884,6 +1920,22 @@ a {
   font-size: 0.88rem;
   line-height: 1.7;
   max-width: 360px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-brand .social-links {
+  margin-top: 1rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.site-footer .social-icon {
+  border: none;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  padding: 0;
 }
 
 .footer-links h5 {
@@ -2143,11 +2195,11 @@ a {
 }
 
 .glow-pulse {
-  animation: glowPulse 3s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.1);
 }
 
 .glow-pulse-green {
-  animation: glowPulseGreen 3s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.1);
 }
 
 /* --- Card Tilt on Hover (3D perspective micro-interaction) --- */
@@ -2175,7 +2227,7 @@ a {
 }
 
 .border-glow {
-  animation: borderGlow 3s ease-in-out infinite;
+  border-color: rgba(212, 175, 55, 0.12);
 }
 
 /* --- Typewriter cursor blink --- */
@@ -2574,7 +2626,7 @@ a {
 
 /* --- Page Hero (Inner pages) --- */
 .page-hero {
-  padding: 6.5rem 0 2rem;
+  padding: 8rem 0 4rem;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -2584,34 +2636,80 @@ a {
 .page-hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, var(--color-gold-glow), transparent 60%),
-    radial-gradient(ellipse at 80% 100%, var(--color-crystal-glow), transparent 50%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transition: all var(--transition-slow);
+}
+
+/* --- Specific Page Banners --- */
+.page-hero-about .page-hero-bg {
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
+    url('/about_banner.png');
+}
+
+.page-hero-products .page-hero-bg {
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
+    url('/products_banner.png');
+}
+
+.page-hero-industries .page-hero-bg {
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
+    url('/industries_banner.png');
+}
+
+.page-hero-why .page-hero-bg {
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
+    url('/why_swanneck_banner.png');
+}
+
+.page-hero-contact .page-hero-bg {
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
+    url('/contact_banner.png');
 }
 
 .page-hero-green .page-hero-bg {
-  background: radial-gradient(ellipse at 50% 0%, rgba(46, 204, 113, 0.08), transparent 60%),
-    radial-gradient(ellipse at 80% 100%, rgba(46, 204, 113, 0.05), transparent 50%);
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
+    linear-gradient(to bottom, rgba(46, 204, 113, 0.15) 0%, var(--hero-gradient-end) 100%), 
+    url('/sustainability_banner.png');
 }
 
 .page-hero-content {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .page-hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+  text-shadow: var(--hero-text-shadow);
 }
 
 .page-hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--color-text-secondary);
-  line-height: 1.8;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: var(--hero-text-shadow);
 }
 
 /* --- Alt Background --- */
