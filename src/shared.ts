@@ -127,7 +127,7 @@ export const preloaderHtml = `
 <div id="preloader">
   <div class="preloader-inner">
     <div class="swan-loader">
-      <img src="/logo.png" alt="Swanneck Logo" class="logo-icon loader-svg">
+      <img src="./logo.png" alt="Swanneck Logo" class="logo-icon loader-svg">
     </div>
     <span class="preloader-text">SWANNECK</span>
   </div>

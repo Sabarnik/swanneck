@@ -25,7 +25,7 @@ export function getNavbar(activePage: string): string {
   <nav id="main-nav" class="navbar">
     <div class="nav-container">
       <a href="./index.html" class="nav-logo" id="nav-logo">
-        <img src="/logo.png" alt="Swanneck Logo" class="logo-icon">
+        <img src="./logo.png" alt="Swanneck Logo" class="logo-icon">
         <span class="logo-text">SWANNECK</span>
       </a>
       <div class="nav-menu" id="nav-menu">
@@ -63,7 +63,7 @@ export function getFooter(): string {
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="./index.html" class="footer-logo">
-            <img src="/logo.png" alt="Swanneck Logo" class="logo-icon">
+            <img src="./logo.png" alt="Swanneck Logo" class="logo-icon">
             <span>SWANNECK</span>
           </a>
           <p class="footer-tagline">Pioneering the future of matured water beverages. First-of-its-kind, patent-pending technology delivering extraordinary taste experiences without alcohol.</p>

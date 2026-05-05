@@ -351,6 +351,21 @@ a {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 1400px) {
+  .nav-link {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  .nav-container {
+    padding: 0 var(--spacing-md);
+  }
+  .logo-text {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
 }
 
 .nav-link {
@@ -2499,7 +2514,7 @@ a {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1150px) {
   .nav-menu {
     position: fixed;
     top: 0;
