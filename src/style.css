@@ -292,17 +292,23 @@ a {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Force Navbar to stay in "Dark Mode" styling when transparent ONLY over the home hero */
+/* Force Navbar to stay in "Dark Mode" styling when transparent ONLY over the home hero or dark hero pages */
 .home-page .navbar:not(.scrolled) .nav-link,
 .home-page .navbar:not(.scrolled) .logo-text,
 .home-page .navbar:not(.scrolled) .logo-icon,
 .home-page .navbar:not(.scrolled) .theme-toggle,
-.home-page .navbar:not(.scrolled) .nav-toggle {
+.home-page .navbar:not(.scrolled) .nav-toggle,
+.dark-hero-page .navbar:not(.scrolled) .nav-link,
+.dark-hero-page .navbar:not(.scrolled) .logo-text,
+.dark-hero-page .navbar:not(.scrolled) .logo-icon,
+.dark-hero-page .navbar:not(.scrolled) .theme-toggle,
+.dark-hero-page .navbar:not(.scrolled) .nav-toggle {
   color: #f8fafc !important;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.home-page .navbar:not(.scrolled) .nav-link-cta {
+.home-page .navbar:not(.scrolled) .nav-link-cta,
+.dark-hero-page .navbar:not(.scrolled) .nav-link-cta {
   color: #b39b6b !important;
   border-color: rgba(179, 155, 107, 0.5) !important;
 }
@@ -559,8 +565,8 @@ a {
   inset: 0;
   background-image: 
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.2) 100%), 
-    url('/home_banner.png');
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.2) 100%),
+    url('/home-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2648,6 +2654,24 @@ a {
   background: var(--color-bg-primary);
 }
 
+.page-hero.hero-fullscreen {
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.page-hero.hero-fullscreen {
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
 .page-hero-bg {
   position: absolute;
   inset: 0;
@@ -2660,44 +2684,49 @@ a {
 
 /* --- Specific Page Banners --- */
 .page-hero-about .page-hero-bg {
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
-    url('/about_banner.png');
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+    url('/about-bg.png');
 }
 
 .page-hero-products .page-hero-bg {
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
-    url('/products_banner.png');
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+    url('/product-page-bg.png');
 }
 
 .page-hero-industries .page-hero-bg {
-  background-image: 
-    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
-    url('/industries_banner.png');
+  background-image: url('/industries-bg.png');
+  /* No gradient for slides */
 }
 
 .page-hero-why .page-hero-bg {
-  background-image: 
-    linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
-    url('/why_swanneck_banner.png');
+  background-image: url('/why-swanneck-bg.png');
+  /* No gradient for slides */
+}
+
+.page-hero.hero-slide .page-hero-bg {
+  /* Using contain for slides so text isn't cropped, with a black background fallback */
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: var(--color-bg-primary);
+  top: 115px;
 }
 
 .page-hero-contact .page-hero-bg {
   background-image: 
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%), 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), 
     url('/contact_banner.png');
 }
 
 .page-hero-green .page-hero-bg {
   background-image: 
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(46, 204, 113, 0.15) 0%, var(--hero-gradient-end) 100%), 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), 
     url('/sustainability_banner.png');
 }
 
@@ -2714,17 +2743,17 @@ a {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: var(--spacing-sm);
-  color: var(--color-text-primary);
-  text-shadow: var(--hero-text-shadow);
+  color: #ffffff !important;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8) !important;
 }
 
 .page-hero-subtitle {
   font-size: 1.2rem;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.9) !important;
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
-  text-shadow: var(--hero-text-shadow);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) !important;
 }
 
 /* --- Alt Background --- */
