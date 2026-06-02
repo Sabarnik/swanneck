@@ -366,9 +366,11 @@ a {
     padding: 0.6rem 0.8rem;
     font-size: 0.75rem;
   }
+
   .nav-container {
     padding: 0 var(--spacing-md);
   }
+
   .logo-text {
     font-size: 1rem;
     letter-spacing: 2px;
@@ -558,13 +560,14 @@ a {
   --color-gold: #b39b6b;
   --color-gold-dark: #8d754a;
   background: var(--color-gold) !important;
-  color: #0a110a !important; /* Dark text on gold button */
+  color: #0a110a !important;
+  /* Dark text on gold button */
 }
 
 .hero-bg-image {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.2) 100%),
     url('/home-bg.png');
@@ -577,8 +580,13 @@ a {
 }
 
 @keyframes subtleZoom {
-  from { transform: scale(1.05); }
-  to { transform: scale(1.15); }
+  from {
+    transform: scale(1.05);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
 }
 
 .hero-particles {
@@ -782,13 +790,14 @@ a {
 .bottle-showcase {
   position: relative;
   width: 280px;
-  height: 580px; /* Narrower and taller to fit the SVG aspect ratio better */
+  height: 580px;
+  /* Narrower and taller to fit the SVG aspect ratio better */
 }
 
 .bottle-glow {
   position: absolute;
   inset: -60px;
-  background: radial-gradient(ellipse at center, rgba(212,175,55,0.3), transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.3), transparent 70%);
   border-radius: 50%;
   filter: blur(40px);
   z-index: 1;
@@ -1044,7 +1053,8 @@ a {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  padding: 1.5rem; /* Tighter padding for image space */
+  padding: 1.5rem;
+  /* Tighter padding for image space */
   transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
@@ -1073,7 +1083,7 @@ a {
   height: 85%;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
   transition: transform var(--transition-base);
 }
 
@@ -1226,7 +1236,7 @@ a {
   justify-content: center;
   position: relative;
   min-height: 280px;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03), transparent 70%);
 }
 
 .product-aura {
@@ -1284,13 +1294,14 @@ a {
 }
 
 .product-image {
-  height: 240px; /* Increased for better presence */
+  height: 240px;
+  /* Increased for better presence */
   width: auto;
   max-width: 90%;
   object-fit: contain;
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.2));
   transition: transform var(--transition-slow);
 }
 
@@ -1304,7 +1315,7 @@ a {
   object-fit: contain;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
   animation: bottleFloat 6s ease-in-out infinite;
 }
 
@@ -2713,10 +2724,10 @@ a {
 }
 
 .page-hero-industries {
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
-    url('/industries-slide-bg.jpg');
+    url('/why-swanneck-slide-bg.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -2728,10 +2739,10 @@ a {
 }
 
 .page-hero-why {
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
-    url('/why-swanneck-slide-bg.jpg');
+    url('/industries-slide-bg.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -2752,16 +2763,16 @@ a {
 }
 
 .page-hero-contact .page-hero-bg {
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
     url('/contact_banner.png');
 }
 
 .page-hero-green .page-hero-bg {
-  background-image: 
+  background-image:
     linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
     url('/sustainability_banner.png');
 }
 
@@ -3502,6 +3513,7 @@ a {
     height: 65vw;
     min-height: 350px;
   }
+
   .page-hero.hero-slide .page-hero-bg {
     top: 85px;
   }
@@ -3576,6 +3588,7 @@ a {
     height: 75vw;
     min-height: 280px;
   }
+
   .page-hero.hero-slide .page-hero-bg {
     top: 70px;
   }
