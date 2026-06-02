@@ -2697,13 +2697,33 @@ a {
     url('/product-page-bg.png');
 }
 
+.page-hero-industries {
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
+    url('/industries-slide-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .page-hero-industries .page-hero-bg {
   background-image: url('/industries-bg.png');
+  background-color: transparent !important;
   /* No gradient for slides */
+}
+
+.page-hero-why {
+  background-image: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 40%),
+    url('/why-swanneck-slide-bg.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .page-hero-why .page-hero-bg {
   background-image: url('/why-swanneck-bg.png');
+  background-color: transparent !important;
   /* No gradient for slides */
 }
 
@@ -3463,6 +3483,14 @@ a {
     padding: 8rem 0 3rem;
   }
 
+  .page-hero.hero-slide.hero-fullscreen {
+    height: 65vw;
+    min-height: 350px;
+  }
+  .page-hero.hero-slide .page-hero-bg {
+    top: 85px;
+  }
+
   .overview-grid {
     grid-template-columns: 1fr;
   }
@@ -3517,6 +3545,14 @@ a {
 @media (max-width: 480px) {
   .page-hero {
     padding: 7rem 0 2.5rem;
+  }
+
+  .page-hero.hero-slide.hero-fullscreen {
+    height: 75vw;
+    min-height: 280px;
+  }
+  .page-hero.hero-slide .page-hero-bg {
+    top: 70px;
   }
 
   .page-hero-title {
